@@ -16,8 +16,24 @@
 /**
  * Back end modules
  */
-$GLOBALS['BE_MOD']['content']['artists_catalog'] = array
+$GLOBALS['BE_MOD']['content']['ac_projects'] = array
 (
     'tables' => array('tl_ac_project', 'tl_ac_project_image'),
     'icon'   => 'system/modules/artists_catalog/assets/icon.png'
 );
+
+
+/**
+ * Front end modules
+ */
+$GLOBALS['FE_MOD']['artists_catalog'] = array
+(
+    'ac_project_navigation' => 'ArtistsCatalog\ModuleProjectNavigation',
+    'ac_project_reader'     => 'ArtistsCatalog\ModuleProjectReader',
+);
+
+
+/**
+ * Models
+ */
+$GLOBALS['TL_MODELS']['tl_ac_project'] = 'ArtistsCatalog\ProjectModel';
