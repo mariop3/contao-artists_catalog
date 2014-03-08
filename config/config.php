@@ -36,4 +36,5 @@ $GLOBALS['FE_MOD']['artists_catalog'] = array
 /**
  * Models
  */
-$GLOBALS['TL_MODELS']['tl_ac_project'] = 'ArtistsCatalog\ProjectModel';
+$GLOBALS['TL_MODELS']['tl_ac_project']       = 'ArtistsCatalog\ProjectModel';
+$GLOBALS['TL_MODELS']['tl_ac_project_image'] = 'ArtistsCatalog\ProjectImageModel';

@@ -25,7 +25,8 @@ ClassLoader::addNamespace('ArtistsCatalog');
 ClassLoader::addClasses(array
 (
     // Models
-    'ArtistsCatalog\ProjectModel' => 'system/modules/artists_catalog/models/ProjectModel.php',
+    'ArtistsCatalog\ProjectModel'      => 'system/modules/artists_catalog/models/ProjectModel.php',
+    'ArtistsCatalog\ProjectImageModel' => 'system/modules/artists_catalog/models/ProjectImageModel.php',
 
     // Modules
     'ArtistsCatalog\ModuleProjectNavigation' => 'system/modules/artists_catalog/modules/ModuleProjectNavigation.php',

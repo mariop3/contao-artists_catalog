@@ -46,4 +46,24 @@ class ProjectModel extends \Model
 
         return static::findBy($arrColumns, $intPage);
     }
+
+
+    /**
+     * Find project by alias and page
+     * @param mixed
+     * @param integer
+     * @return \Model|null
+     */
+    public static function findByAliasAndPage($varAlias, $intPage)
+    {
+        $t = static::$strTable;
+        $arrColumns[] = "$t.alias=? AND $t.page=?";
+
+        if (!BE_USER_LOGGED_IN)
+        {
+            $arrColumns[] = "$t.published=1";
+        }
+
+        return static::findOneBy($arrColumns, array($varAlias, $intPage));
+    }
 }

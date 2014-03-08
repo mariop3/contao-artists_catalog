@@ -1,0 +1,40 @@
+
+<!-- indexer::stop -->
+<div class="<?php echo $this->class; ?> block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
+
+    <?php if ($this->headline): ?>
+    <<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
+    <?php endif; ?>
+
+    <h1><?php echo $this->name; ?></h1>
+
+    <?php if ($this->description): ?>
+    <div class="description">
+        <?php echo $this->description; ?>
+    </div>
+    <?php endif; ?>
+
+    <?php if ($this->images): ?>
+    <div class="images">
+        <?php foreach ($this->images as $image): ?>
+        <div class="image">
+            <?php if ($image['headline']): ?>
+            <h4><?php echo $image['headline']; ?></h4>
+            <?php endif; ?>
+
+            <?php if ($image['subheadline']): ?>
+            <p><?php echo $image['subheadline']; ?></p>
+            <?php endif; ?>
+
+            <figure class="image_container">
+                <a href="<?php echo $image['href']; ?>" title="<?php echo $image['linkTitle']; ?>" data-lightbox="<?php echo $image['lightbox']; ?>">
+                    <?php echo $image['singleSRC']; ?>
+                </a>
+            </figure>
+        </div>
+        <?php endforeach; ?>
+    </div>
+    <?php endif; ?>
+
+</div>
+<!-- indexer::continue -->
