@@ -149,8 +149,9 @@ $GLOBALS['TL_DCA']['tl_ac_project'] = array
             'exclude'                 => true,
             'filter'                  => true,
             'inputType'               => 'pageTree',
+            'foreignKey'              => 'tl_page.title',
             'eval'                    => array('mandatory'=>true, 'fieldType'=>'radio', 'tl_class'=>'clr'),
-            'sql'                     => "blob NULL"
+            'sql'                     => "int(10) unsigned NOT NULL default '0'"
         ),
         'description' => array
         (
