@@ -122,7 +122,7 @@ $GLOBALS['TL_DCA']['tl_ac_project'] = array
     // Palettes
     'palettes' => array
     (
-        'default'                     => '{name_legend},name,alias,page,description,published'
+        'default'                     => '{name_legend},name,alias,page,singleSRC,description,published'
     ),
 
     // Fields
@@ -167,6 +167,14 @@ $GLOBALS['TL_DCA']['tl_ac_project'] = array
             'foreignKey'              => 'tl_page.title',
             'eval'                    => array('mandatory'=>true, 'fieldType'=>'radio', 'tl_class'=>'clr'),
             'sql'                     => "int(10) unsigned NOT NULL default '0'"
+        ),
+        'singleSRC' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_ac_project']['singleSRC'],
+            'exclude'                 => true,
+            'inputType'               => 'fileTree',
+            'eval'                    => array('filesOnly'=>true, 'fieldType'=>'radio', 'extensions'=>$GLOBALS['TL_CONFIG']['validImageTypes'], 'tl_class'=>'clr'),
+            'sql'                     => "binary(16) NULL"
         ),
         'description' => array
         (

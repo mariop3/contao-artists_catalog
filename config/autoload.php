@@ -33,6 +33,7 @@ ClassLoader::addClasses(array
 
     // Modules
     'ArtistsCatalog\ModuleProjectNavigation' => 'system/modules/artists_catalog/modules/ModuleProjectNavigation.php',
+    'ArtistsCatalog\ModuleProjectList'       => 'system/modules/artists_catalog/modules/ModuleProjectList.php',
     'ArtistsCatalog\ModuleProjectReader'     => 'system/modules/artists_catalog/modules/ModuleProjectReader.php',
 ));
 
@@ -43,6 +44,7 @@ ClassLoader::addClasses(array
 TemplateLoader::addFiles(array
 (
     'mod_ac_project_navigation' => 'system/modules/artists_catalog/templates/modules',
+    'mod_ac_project_list'       => 'system/modules/artists_catalog/templates/modules',
     'mod_ac_project_reader'     => 'system/modules/artists_catalog/templates/modules',
 ));
 

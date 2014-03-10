@@ -19,6 +19,7 @@
 $GLOBALS['TL_LANG']['tl_ac_project']['name']        = array('Name', 'Please enter the project name.');
 $GLOBALS['TL_LANG']['tl_ac_project']['alias']       = array('Project alias', 'The project alias is a unique reference to the project which can be called instead of its numeric ID.');
 $GLOBALS['TL_LANG']['tl_ac_project']['page']        = array('Page', 'Please enter the project name.');
+$GLOBALS['TL_LANG']['tl_ac_project']['singleSRC']   = array('Cover image', 'Here you can choose the project cover image.');
 $GLOBALS['TL_LANG']['tl_ac_project']['description'] = array('Description', 'Here you can enter the project description.');
 $GLOBALS['TL_LANG']['tl_ac_project']['published']   = array('Publish project', 'Make the project publicly visible on the website.');
 

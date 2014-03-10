@@ -29,6 +29,7 @@ $GLOBALS['BE_MOD']['content']['ac_projects'] = array
 $GLOBALS['FE_MOD']['artists_catalog'] = array
 (
     'ac_project_navigation' => 'ArtistsCatalog\ModuleProjectNavigation',
+    'ac_project_list'       => 'ArtistsCatalog\ModuleProjectList',
     'ac_project_reader'     => 'ArtistsCatalog\ModuleProjectReader',
 );
 
