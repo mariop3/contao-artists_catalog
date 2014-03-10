@@ -8,24 +8,10 @@
 
     <h1><?php echo $this->name; ?></h1>
 
-    <?php if ($this->description): ?>
-    <div class="description">
-        <?php echo $this->description; ?>
-    </div>
-    <?php endif; ?>
-
     <?php if ($this->images): ?>
     <div class="images">
         <?php foreach ($this->images as $image): ?>
         <div class="image">
-            <?php if ($image['headline']): ?>
-            <h4><?php echo $image['headline']; ?></h4>
-            <?php endif; ?>
-
-            <?php if ($image['subheadline']): ?>
-            <p><?php echo $image['subheadline']; ?></p>
-            <?php endif; ?>
-
             <figure class="image_container">
                 <?php if ($this->lightbox): ?>
                 <a href="<?php echo $image['src']; ?>" title="<?php echo $image['linkTitle']; ?>" data-lightbox="<?php echo $image['lightbox']; ?>">
@@ -37,8 +23,22 @@
                 </a>
                 <?php endif; ?>
             </figure>
+
+            <?php if ($image['headline']): ?>
+            <h4><?php echo $image['headline']; ?></h4>
+            <?php endif; ?>
+
+            <?php if ($image['subheadline']): ?>
+            <p><?php echo $image['subheadline']; ?></p>
+            <?php endif; ?>
         </div>
         <?php endforeach; ?>
+    </div>
+    <?php endif; ?>
+
+    <?php if ($this->description): ?>
+    <div class="description">
+        <?php echo $this->description; ?>
     </div>
     <?php endif; ?>
 
