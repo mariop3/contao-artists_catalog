@@ -16,5 +16,5 @@
 /**
  * Buttons
  */
-$GLOBALS['TL_LANG']['tl_page']['ac_projects_sorting']      = array('Sort projects', 'Sort projects in page ID %s');
-$GLOBALS['TL_LANG']['tl_page']['ac_projects_sorting_help'] = 'Please choose the page you would like to sort the projects for.';
+$GLOBALS['TL_LANG']['tl_page']['ac_projects_sorting']      = array('Sort works', 'Sort works in page ID %s');
+$GLOBALS['TL_LANG']['tl_page']['ac_projects_sorting_help'] = 'Choose the page containing the works you want to sort.';

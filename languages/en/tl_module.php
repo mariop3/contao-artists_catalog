@@ -16,4 +16,4 @@
 /**
  * Fields
  */
-$GLOBALS['TL_LANG']['tl_module']['ac_openFirst'] = array('Open first project', 'Open the first project on the list by default.');
+$GLOBALS['TL_LANG']['tl_module']['ac_openFirst'] = array('Display first work', 'Automatically display first work in the list.');

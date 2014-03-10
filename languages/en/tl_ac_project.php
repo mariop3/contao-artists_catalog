@@ -16,28 +16,28 @@
 /**
  * Fields
  */
-$GLOBALS['TL_LANG']['tl_ac_project']['name']        = array('Name', 'Please enter the project name.');
-$GLOBALS['TL_LANG']['tl_ac_project']['alias']       = array('Project alias', 'The project alias is a unique reference to the project which can be called instead of its numeric ID.');
-$GLOBALS['TL_LANG']['tl_ac_project']['page']        = array('Page', 'Please enter the project name.');
-$GLOBALS['TL_LANG']['tl_ac_project']['singleSRC']   = array('Cover image', 'Here you can choose the project cover image.');
-$GLOBALS['TL_LANG']['tl_ac_project']['description'] = array('Description', 'Here you can enter the project description.');
-$GLOBALS['TL_LANG']['tl_ac_project']['published']   = array('Publish project', 'Make the project publicly visible on the website.');
+$GLOBALS['TL_LANG']['tl_ac_project']['name']        = array('Name', 'Please enter the work name.');
+$GLOBALS['TL_LANG']['tl_ac_project']['alias']       = array('Work alias', 'The work alias is a unique reference to the work which can be called instead of its numeric ID.');
+$GLOBALS['TL_LANG']['tl_ac_project']['page']        = array('Page', 'Choose a site on which the work will be displayed. Build categories for different works, where each category can be a different page.');
+$GLOBALS['TL_LANG']['tl_ac_project']['singleSRC']   = array('Cover image', 'Here you can choose the work cover image.');
+$GLOBALS['TL_LANG']['tl_ac_project']['description'] = array('Description', 'Work description can be entered here.');
+$GLOBALS['TL_LANG']['tl_ac_project']['published']   = array('Publish work', 'Make the work publicly visible on the website.');
 
 
 /**
  * Legends
  */
-$GLOBALS['TL_LANG']['tl_ac_project']['name_legend'] = 'Name and description';
+$GLOBALS['TL_LANG']['tl_ac_project']['name_legend'] = 'Work and description';
 
 
 /**
  * Buttons
  */
-$GLOBALS['TL_LANG']['tl_ac_project']['new']        = array('New project', 'Create a new project');
-$GLOBALS['TL_LANG']['tl_ac_project']['show']       = array('Project details', 'Show the details of project ID %s');
-$GLOBALS['TL_LANG']['tl_ac_project']['edit']       = array('Edit project', 'Edit project ID %s');
-$GLOBALS['TL_LANG']['tl_ac_project']['editheader'] = array('Edit project settings', 'Edit project settings ID %s');
-$GLOBALS['TL_LANG']['tl_ac_project']['copy']       = array('Duplicate project', 'Duplicate project ID %s');
-$GLOBALS['TL_LANG']['tl_ac_project']['delete']     = array('Delete project', 'Delete project ID %s');
-$GLOBALS['TL_LANG']['tl_ac_project']['toggle']     = array('Publish/unpublish project', 'Publish/unpublish project ID %s');
-$GLOBALS['TL_LANG']['tl_ac_project']['sorting']    = array('Sort projects', 'Sort the projects per page');
+$GLOBALS['TL_LANG']['tl_ac_project']['new']        = array('New work', 'Create a new work');
+$GLOBALS['TL_LANG']['tl_ac_project']['show']       = array('Work details', 'Show the details of work ID %s');
+$GLOBALS['TL_LANG']['tl_ac_project']['edit']       = array('Edit work', 'Edit work ID %s');
+$GLOBALS['TL_LANG']['tl_ac_project']['editheader'] = array('Edit work settings', 'Edit work settings ID %s');
+$GLOBALS['TL_LANG']['tl_ac_project']['copy']       = array('Duplicate work', 'Duplicate work ID %s');
+$GLOBALS['TL_LANG']['tl_ac_project']['delete']     = array('Delete work', 'Delete work ID %s');
+$GLOBALS['TL_LANG']['tl_ac_project']['toggle']     = array('Publish/unpublish work', 'Publish/unpublish work ID %s');
+$GLOBALS['TL_LANG']['tl_ac_project']['sorting']    = array('Sort works', 'Sort the works per page');
