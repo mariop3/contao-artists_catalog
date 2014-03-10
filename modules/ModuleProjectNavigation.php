@@ -89,7 +89,7 @@ class ModuleProjectNavigation extends \Module
             $arrProjects[$objProjects->id] = $objProjects->row();
             $arrProjects[$objProjects->id]['isActive'] = $blnActive;
             $arrProjects[$objProjects->id]['subitems'] = '';
-            $arrProjects[$objProjects->id]['class'] = trim(((++$count == 1) ? ' first' : '') . (($count == $limit) ? ' last' : '') . ((($count % 2) == 0) ? ' odd' : ' even'));
+            $arrProjects[$objProjects->id]['class'] = trim(((++$count == 1) ? ' first' : '') . (($count == $limit) ? ' last' : '') . ((($count % 2) == 0) ? ' odd' : ' even') . ($blnActive ? ' active' : ''));
             $arrProjects[$objProjects->id]['title'] = specialchars($objProjects->name, true);
             $arrProjects[$objProjects->id]['pageTitle'] = specialchars($objProjects->name, true);
             $arrProjects[$objProjects->id]['link'] = $objProjects->name;
