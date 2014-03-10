@@ -91,6 +91,14 @@ class tl_page_ac extends Backend
             return '';
         }
 
+        $objProjects = $this->Database->prepare("SELECT COUNT(*) AS total FROM tl_ac_project WHERE page=?")
+                                      ->execute($row['id']);
+
+        if (!$objProjects->total)
+        {
+            return '';
+        }
+
         return '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ';
     }
 }
