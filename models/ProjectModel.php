@@ -44,7 +44,17 @@ class ProjectModel extends \Model
             $arrColumns[] = "$t.published=1";
         }
 
-        return static::findBy($arrColumns, $intPage);
+        $arrOptions['order'] = "$t.name";
+        $objSorting = \Database::getInstance()->prepare("SELECT project FROM tl_page_ac_project WHERE pid=? ORDER BY sorting")
+                                              ->execute($intPage);
+
+        // Sort records
+        if ($objSorting->numRows)
+        {
+            $arrOptions['order'] = \Database::getInstance()->findInSet("$t.id", $objSorting->fetchEach('project'));
+        }
+
+        return static::findBy($arrColumns, $intPage, $arrOptions);
     }
 
 

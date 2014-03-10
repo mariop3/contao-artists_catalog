@@ -18,7 +18,7 @@
  */
 $GLOBALS['BE_MOD']['content']['ac_projects'] = array
 (
-    'tables' => array('tl_ac_project', 'tl_ac_project_image'),
+    'tables' => array('tl_ac_project', 'tl_ac_project_image', 'tl_page', 'tl_page_ac_project'),
     'icon'   => 'system/modules/artists_catalog/assets/icon.png'
 );
 

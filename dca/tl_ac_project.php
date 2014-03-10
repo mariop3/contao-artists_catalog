@@ -26,6 +26,14 @@ $GLOBALS['TL_DCA']['tl_ac_project'] = array
         'ctable'                      => array('tl_ac_project_image'),
         'switchToEdit'                => true,
         'enableVersioning'            => true,
+        'onsubmit_callback' => array
+        (
+            array('tl_ac_project', 'updateSortingTable')
+        ),
+        'ondelete_callback' => array
+        (
+            array('tl_ac_project', 'updateSortingTable')
+        ),
         'sql' => array
         (
             'keys' => array
@@ -53,13 +61,20 @@ $GLOBALS['TL_DCA']['tl_ac_project'] = array
         ),
         'global_operations' => array
         (
+            'sorting' => array
+            (
+                'label'               => &$GLOBALS['TL_LANG']['tl_ac_project']['sorting'],
+                'href'                => 'table=tl_page',
+                'icon'                => 'page.gif',
+                'attributes'          => 'onclick="Backend.getScrollOffset()"'
+            ),
             'all' => array
             (
                 'label'               => &$GLOBALS['TL_LANG']['MSC']['all'],
                 'href'                => 'act=select',
                 'class'               => 'header_edit_all',
                 'attributes'          => 'onclick="Backend.getScrollOffset()" accesskey="e"'
-            )
+            ),
         ),
         'operations' => array
         (
@@ -71,7 +86,7 @@ $GLOBALS['TL_DCA']['tl_ac_project'] = array
             ),
             'editheader' => array
             (
-                'label'               => &$GLOBALS['TL_LANG']['tl_ac_project']['editmeta'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_ac_project']['editheader'],
                 'href'                => 'act=edit',
                 'icon'                => 'header.gif'
             ),
@@ -182,6 +197,16 @@ $GLOBALS['TL_DCA']['tl_ac_project'] = array
  */
 class tl_ac_project extends Backend
 {
+
+    /**
+     * Update the sorting table
+     * @param \DataContainer
+     */
+    public function updateSortingTable(\DataContainer $dc)
+    {
+        \ArtistsCatalog\ArtistsCatalog::updateSortingTable($dc->activeRecord->page);
+    }
+
 
     /**
      * Auto-generate the project alias if it has not been set yet

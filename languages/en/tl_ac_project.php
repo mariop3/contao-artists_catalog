@@ -39,4 +39,4 @@ $GLOBALS['TL_LANG']['tl_ac_project']['editheader'] = array('Edit project setting
 $GLOBALS['TL_LANG']['tl_ac_project']['copy']       = array('Duplicate project', 'Duplicate project ID %s');
 $GLOBALS['TL_LANG']['tl_ac_project']['delete']     = array('Delete project', 'Delete project ID %s');
 $GLOBALS['TL_LANG']['tl_ac_project']['toggle']     = array('Publish/unpublish project', 'Publish/unpublish project ID %s');
-
+$GLOBALS['TL_LANG']['tl_ac_project']['sorting']    = array('Sort projects', 'Sort the projects per page');
