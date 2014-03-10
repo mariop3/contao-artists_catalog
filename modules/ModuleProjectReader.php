@@ -85,6 +85,7 @@ class ModuleProjectReader extends \Module
 
         $this->Template->setData($objProject->row());
         $this->Template->description = \String::toHtml5($objProject->description);
+        $this->Template->lightbox = $this->fullsize;
         $objImages = ProjectImageModel::findByPid($objProject->id);
 
         // Add images

@@ -27,9 +27,15 @@
             <?php endif; ?>
 
             <figure class="image_container">
-                <a href="<?php echo $image['href']; ?>" title="<?php echo $image['linkTitle']; ?>" data-lightbox="<?php echo $image['lightbox']; ?>">
-                    <?php echo $image['singleSRC']; ?>
+                <?php if ($this->lightbox): ?>
+                <a href="<?php echo $image['src']; ?>" title="<?php echo $image['linkTitle']; ?>" data-lightbox="<?php echo $image['lightbox']; ?>">
+                <?php endif; ?>
+
+                <?php echo $image['singleSRC']; ?>
+
+                <?php if ($this->lightbox): ?>
                 </a>
+                <?php endif; ?>
             </figure>
         </div>
         <?php endforeach; ?>
