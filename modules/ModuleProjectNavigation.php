@@ -71,9 +71,16 @@ class ModuleProjectNavigation extends \Module
             return;
         }
 
+        $strHref = $this->generateFrontendUrl($objPage->row(), ($GLOBALS['TL_CONFIG']['useAutoItem'] ? '/%s' : '/items/%s'));
+
+        // Open the first project by default
+        if ($this->ac_openFirst && !\Input::get('items'))
+        {
+            $this->redirect(sprintf($strHref, $objProjects->alias));
+        }
+
         $count = 0;
         $limit = $objProjects->count();
-        $strHref = $this->generateFrontendUrl($objPage->row(), ($GLOBALS['TL_CONFIG']['useAutoItem'] ? '/%s' : '/items/%s'));
         $arrProjects = array();
 
         while ($objProjects->next())
