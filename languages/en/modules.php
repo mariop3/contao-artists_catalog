@@ -16,13 +16,13 @@
 /**
  * Back end modules
  */
-$GLOBALS['TL_LANG']['MOD']['ac_projects'] = array('Portfolio', 'Manage artists portfolio');
+$GLOBALS['TL_LANG']['MOD']['ac_projects'] = array('Portfolio', 'Manage artist portfolio');
 
 
 /**
  * Front end modules
  */
-$GLOBALS['TL_LANG']['FMD']['artists_catalog']       = 'Artists catalog';
-$GLOBALS['TL_LANG']['FMD']['ac_project_navigation'] = array('Portoflio navigation');
-$GLOBALS['TL_LANG']['FMD']['ac_project_list']       = array('Portoflio list');
-$GLOBALS['TL_LANG']['FMD']['ac_project_reader']     = array('Portoflio reader');
+$GLOBALS['TL_LANG']['FMD']['artists_catalog']       = 'Artist portfolio';
+$GLOBALS['TL_LANG']['FMD']['ac_project_navigation'] = array('Portfolio navigation');
+$GLOBALS['TL_LANG']['FMD']['ac_project_list']       = array('Portfolio list');
+$GLOBALS['TL_LANG']['FMD']['ac_project_reader']     = array('Portfolio reader');
