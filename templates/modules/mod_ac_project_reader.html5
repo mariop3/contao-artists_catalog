@@ -6,6 +6,18 @@
     <<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
     <?php endif; ?>
 
+    <div class="project_navigation">
+        <?php if ($this->previous): ?>
+        <a href="<?php echo $this->previousHref; ?>" title="<?php echo $this->previousTitle; ?>"><?php echo $this->previousLink; ?></a>
+        <?php endif; ?>
+
+        <a href="<?php echo $this->overviewHref; ?>" title="<?php echo $this->overviewTitle; ?>"><?php echo $this->overviewLink; ?></a>
+
+        <?php if ($this->next): ?>
+        <a href="<?php echo $this->nextHref; ?>" title="<?php echo $this->nextTitle; ?>"><?php echo $this->nextLink; ?></a>
+        <?php endif; ?>
+    </div>
+
     <h1><?php echo $this->name; ?></h1>
 
     <?php if ($this->images): ?>
@@ -41,6 +53,18 @@
         <?php echo $this->description; ?>
     </div>
     <?php endif; ?>
+
+    <div class="project_navigation">
+        <?php if ($this->previous): ?>
+        <a href="<?php echo $this->previousHref; ?>" title="<?php echo $this->previousTitle; ?>"><?php echo $this->previousLink; ?></a>
+        <?php endif; ?>
+
+        <a href="<?php echo $this->overviewHref; ?>" title="<?php echo $this->overviewTitle; ?>"><?php echo $this->overviewLink; ?></a>
+
+        <?php if ($this->next): ?>
+        <a href="<?php echo $this->nextHref; ?>" title="<?php echo $this->nextTitle; ?>"><?php echo $this->nextLink; ?></a>
+        <?php endif; ?>
+    </div>
 
 </div>
 <!-- indexer::continue -->

@@ -111,6 +111,32 @@ class ModuleProjectReader extends \Module
             $this->Template->images = $arrImages;
         }
 
+        $strHref = $this->generateFrontendUrl($objPage->row(), ($GLOBALS['TL_CONFIG']['useAutoItem'] ? '/%s' : '/items/%s'));
+        $this->Template->overviewHref = $this->generateFrontendUrl($objPage->row());
+        $this->Template->overviewLink = $GLOBALS['TL_LANG']['MSC']['ac_overview'];
+        $this->Template->overviewTitle = specialchars($GLOBALS['TL_LANG']['MSC']['ac_overview']);
+        $this->Template->previous = false;
+
+        // Get the previous project
+        if (($objPrevious = $objProject->getPrevious()) !== null)
+        {
+            $this->Template->previous = true;
+            $this->Template->previousHref = sprintf($strHref, $objPrevious->alias);
+            $this->Template->previousLink = $GLOBALS['TL_LANG']['MSC']['ac_previous'];
+            $this->Template->previousTitle = specialchars($GLOBALS['TL_LANG']['MSC']['ac_previous']);
+        }
+
+        $this->Template->next = false;
+
+        // Get the next project
+        if (($objNext = $objProject->getNext()) !== null)
+        {
+            $this->Template->next = true;
+            $this->Template->nextHref = sprintf($strHref, $objNext->alias);
+            $this->Template->nextLink = $GLOBALS['TL_LANG']['MSC']['ac_next'];
+            $this->Template->nextTitle = specialchars($GLOBALS['TL_LANG']['MSC']['ac_next']);
+        }
+
         // Overwrite the page title and description
         $objPage->pageTitle = strip_tags(strip_insert_tags($objProject->name));
         $objPage->description = $this->prepareMetaDescription($objProject->description);

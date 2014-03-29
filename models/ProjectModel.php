@@ -30,6 +30,60 @@ class ProjectModel extends \Model
 
 
     /**
+     * Get the previous project
+     * @return \Model|null
+     */
+    public function getPrevious()
+    {
+        $objPrevious = \Database::getInstance()->prepare("SELECT project FROM tl_page_ac_project WHERE pid=? AND sorting<(SELECT sorting FROM tl_page_ac_project WHERE project=?) ORDER BY sorting")
+                                               ->limit(1)
+                                               ->execute($this->page, $this->id);
+
+        if (!$objPrevious->numRows)
+        {
+            return null;
+        }
+
+        $t = static::$strTable;
+        $arrColumns[] = "$t.id=?";
+
+        if (!BE_USER_LOGGED_IN)
+        {
+            $arrColumns[] = "$t.published=1";
+        }
+
+        return static::findOneBy($arrColumns, $objPrevious->project);
+    }
+
+
+    /**
+     * Get the next project
+     * @return \Model|null
+     */
+    public function getNext()
+    {
+        $objNext = \Database::getInstance()->prepare("SELECT project FROM tl_page_ac_project WHERE pid=? AND sorting>(SELECT sorting FROM tl_page_ac_project WHERE project=?) ORDER BY sorting")
+                                           ->limit(1)
+                                           ->execute($this->page, $this->id);
+
+        if (!$objNext->numRows)
+        {
+            return null;
+        }
+
+        $t = static::$strTable;
+        $arrColumns[] = "$t.id=?";
+
+        if (!BE_USER_LOGGED_IN)
+        {
+            $arrColumns[] = "$t.published=1";
+        }
+
+        return static::findOneBy($arrColumns, $objNext->project);
+    }
+
+
+    /**
      * Find the projects by page
      * @param integer
      * @return \Model|null
