@@ -8,13 +8,13 @@
 
     <div class="project_navigation">
         <?php if ($this->previous): ?>
-        <a href="<?php echo $this->previousHref; ?>" title="<?php echo $this->previousTitle; ?>"><?php echo $this->previousLink; ?></a>
+        <a href="<?php echo $this->previousHref; ?>" class="previous" title="<?php echo $this->previousTitle; ?>"><?php echo $this->previousLink; ?></a>
         <?php endif; ?>
 
-        <a href="<?php echo $this->overviewHref; ?>" title="<?php echo $this->overviewTitle; ?>"><?php echo $this->overviewLink; ?></a>
+        <a href="<?php echo $this->overviewHref; ?>" class="overview" title="<?php echo $this->overviewTitle; ?>"><?php echo $this->overviewLink; ?></a>
 
         <?php if ($this->next): ?>
-        <a href="<?php echo $this->nextHref; ?>" title="<?php echo $this->nextTitle; ?>"><?php echo $this->nextLink; ?></a>
+        <a href="<?php echo $this->nextHref; ?>" class="next" title="<?php echo $this->nextTitle; ?>"><?php echo $this->nextLink; ?></a>
         <?php endif; ?>
     </div>
 
@@ -56,13 +56,13 @@
 
     <div class="project_navigation">
         <?php if ($this->previous): ?>
-        <a href="<?php echo $this->previousHref; ?>" title="<?php echo $this->previousTitle; ?>"><?php echo $this->previousLink; ?></a>
+        <a href="<?php echo $this->previousHref; ?>" class="previous" title="<?php echo $this->previousTitle; ?>"><?php echo $this->previousLink; ?></a>
         <?php endif; ?>
 
-        <a href="<?php echo $this->overviewHref; ?>" title="<?php echo $this->overviewTitle; ?>"><?php echo $this->overviewLink; ?></a>
+        <a href="<?php echo $this->overviewHref; ?>" class="overview" title="<?php echo $this->overviewTitle; ?>"><?php echo $this->overviewLink; ?></a>
 
         <?php if ($this->next): ?>
-        <a href="<?php echo $this->nextHref; ?>" title="<?php echo $this->nextTitle; ?>"><?php echo $this->nextLink; ?></a>
+        <a href="<?php echo $this->nextHref; ?>" class="next" title="<?php echo $this->nextTitle; ?>"><?php echo $this->nextLink; ?></a>
         <?php endif; ?>
     </div>
 
