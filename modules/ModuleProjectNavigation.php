@@ -64,7 +64,7 @@ class ModuleProjectNavigation extends \Module
     protected function compile()
     {
         global $objPage;
-        $objProjects = ProjectModel::findByPage($objPage->id);
+        $objProjects = ProjectModel::findByPage(($GLOBALS['TL_CONFIG']['ac_defaultPage'] ? $GLOBALS['TL_CONFIG']['ac_defaultPage'] : $objPage->id));
 
         if ($objProjects === null)
         {
@@ -72,6 +72,17 @@ class ModuleProjectNavigation extends \Module
         }
 
         $strHref = $this->generateFrontendUrl($objPage->row(), ($GLOBALS['TL_CONFIG']['useAutoItem'] ? '/%s' : '/items/%s'));
+
+        // Generate the default page URL
+        if ($GLOBALS['TL_CONFIG']['ac_defaultPage'])
+        {
+            $objJump = \PageModel::findByPk($GLOBALS['TL_CONFIG']['ac_defaultPage']);
+
+            if ($objJump !== null)
+            {
+                $strHref = $this->generateFrontendUrl($objJump->row(), ($GLOBALS['TL_CONFIG']['useAutoItem'] ? '/%s' : '/items/%s'));
+            }
+        }
 
         // Open the first project by default
         if ($this->ac_openFirst && !\Input::get('items'))

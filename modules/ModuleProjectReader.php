@@ -73,7 +73,7 @@ class ModuleProjectReader extends \Module
     protected function compile()
     {
         global $objPage;
-        $objProject = ProjectModel::findByAliasAndPage(\Input::get('items'), $objPage->id);
+        $objProject = ProjectModel::findByAliasAndPage(\Input::get('items'), ($GLOBALS['TL_CONFIG']['ac_defaultPage'] ? $GLOBALS['TL_CONFIG']['ac_defaultPage'] : $objPage->id));
 
         // Do not index or cache the page if no project was found
         if ($objProject === null)
@@ -112,6 +112,18 @@ class ModuleProjectReader extends \Module
         }
 
         $strHref = $this->generateFrontendUrl($objPage->row(), ($GLOBALS['TL_CONFIG']['useAutoItem'] ? '/%s' : '/items/%s'));
+
+        // Generate the default page URL
+        if ($GLOBALS['TL_CONFIG']['ac_defaultPage'])
+        {
+            $objJump = \PageModel::findByPk($GLOBALS['TL_CONFIG']['ac_defaultPage']);
+
+            if ($objJump !== null)
+            {
+                $strHref = $this->generateFrontendUrl($objJump->row(), ($GLOBALS['TL_CONFIG']['useAutoItem'] ? '/%s' : '/items/%s'));
+            }
+        }
+
         $this->Template->overviewHref = $this->generateFrontendUrl($objPage->row());
         $this->Template->overviewLink = $GLOBALS['TL_LANG']['MSC']['ac_overview'];
         $this->Template->overviewTitle = specialchars($GLOBALS['TL_LANG']['MSC']['ac_overview']);

@@ -70,7 +70,7 @@ class ModuleProjectList extends \Module
     protected function compile()
     {
         global $objPage;
-        $objProjects = ProjectModel::findByPage($objPage->id);
+        $objProjects = ProjectModel::findByPage(($GLOBALS['TL_CONFIG']['ac_defaultPage'] ? $GLOBALS['TL_CONFIG']['ac_defaultPage'] : $objPage->id));
 
         if ($objProjects === null)
         {
@@ -81,6 +81,18 @@ class ModuleProjectList extends \Module
         $limit = $objProjects->count();
         $imgSize = deserialize($this->imgSize, true);
         $strHref = $this->generateFrontendUrl($objPage->row(), ($GLOBALS['TL_CONFIG']['useAutoItem'] ? '/%s' : '/items/%s'));
+
+        // Generate the default page URL
+        if ($GLOBALS['TL_CONFIG']['ac_defaultPage'])
+        {
+            $objJump = \PageModel::findByPk($GLOBALS['TL_CONFIG']['ac_defaultPage']);
+
+            if ($objJump !== null)
+            {
+                $strHref = $this->generateFrontendUrl($objJump->row(), ($GLOBALS['TL_CONFIG']['useAutoItem'] ? '/%s' : '/items/%s'));
+            }
+        }
+
         $arrProjects = array();
 
         while ($objProjects->next())

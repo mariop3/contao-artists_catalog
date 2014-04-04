@@ -28,7 +28,8 @@ $GLOBALS['TL_DCA']['tl_ac_project'] = array
         'enableVersioning'            => true,
         'onsubmit_callback' => array
         (
-            array('tl_ac_project', 'updateSortingTable')
+            array('tl_ac_project', 'updateSortingTable'),
+            array('tl_ac_project', 'setDefaultPage')
         ),
         'ondelete_callback' => array
         (
@@ -199,6 +200,15 @@ $GLOBALS['TL_DCA']['tl_ac_project'] = array
 
 
 /**
+ * Use the default page
+ */
+if ($GLOBALS['TL_CONFIG']['ac_defaultPage'])
+{
+    unset($GLOBALS['TL_DCA']['tl_ac_project']['fields']['page']);
+}
+
+
+/**
  * Class tl_ac_project
  *
  * Provide miscellaneous methods that are used by the data configuration array.
@@ -213,6 +223,20 @@ class tl_ac_project extends Backend
     public function updateSortingTable(\DataContainer $dc)
     {
         \ArtistsCatalog\ArtistsCatalog::updateSortingTable($dc->activeRecord->page);
+    }
+
+
+    /**
+     * Set the default page
+     * @param \DataContainer
+     */
+    public function setDefaultPage(\DataContainer $dc)
+    {
+        if ($GLOBALS['TL_CONFIG']['ac_defaultPage'])
+        {
+            $this->Database->prepare("UPDATE tl_ac_project SET page=? WHERE id=?")
+                           ->execute($GLOBALS['TL_CONFIG']['ac_defaultPage'], $dc->id);
+        }
     }
 
 
