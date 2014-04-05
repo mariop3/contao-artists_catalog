@@ -54,7 +54,7 @@ class ArtistsCatalog
 
             if (!$objExists->numRows)
             {
-                $intSortingMax = intval($intSortingMax) + 16;
+                $intSortingMax = intval($intSortingMax) + 128;
 
                 $arrSet = array
                 (

@@ -35,7 +35,7 @@ class ProjectModel extends \Model
      */
     public function getPrevious()
     {
-        $objPrevious = \Database::getInstance()->prepare("SELECT project FROM tl_page_ac_project WHERE pid=? AND sorting<(SELECT sorting FROM tl_page_ac_project WHERE project=?) ORDER BY sorting")
+        $objPrevious = \Database::getInstance()->prepare("SELECT project FROM tl_page_ac_project WHERE pid=? AND sorting<(SELECT sorting FROM tl_page_ac_project WHERE project=?) ORDER BY sorting DESC")
                                                ->limit(1)
                                                ->execute($this->page, $this->id);
 
