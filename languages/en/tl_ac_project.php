@@ -16,18 +16,21 @@
 /**
  * Fields
  */
-$GLOBALS['TL_LANG']['tl_ac_project']['name']        = array('Name', 'Please enter the work name.');
-$GLOBALS['TL_LANG']['tl_ac_project']['alias']       = array('Work alias', 'The work alias is a unique reference to the work which can be called instead of its numeric ID.');
-$GLOBALS['TL_LANG']['tl_ac_project']['page']        = array('Page', 'Choose a site on which the work will be displayed. Build categories for different works, where each category can be a different page.');
-$GLOBALS['TL_LANG']['tl_ac_project']['singleSRC']   = array('Cover image', 'Here you can choose the work cover image.');
-$GLOBALS['TL_LANG']['tl_ac_project']['description'] = array('Description', 'Work description can be entered here.');
-$GLOBALS['TL_LANG']['tl_ac_project']['published']   = array('Publish work', 'Make the work publicly visible on the website.');
+$GLOBALS['TL_LANG']['tl_ac_project']['name']            = array('Name', 'Please enter the work name.');
+$GLOBALS['TL_LANG']['tl_ac_project']['alias']           = array('Work alias', 'The work alias is a unique reference to the work which can be called instead of its numeric ID.');
+$GLOBALS['TL_LANG']['tl_ac_project']['page']            = array('Page', 'Choose a site on which the work will be displayed. Build categories for different works, where each category can be a different page.');
+$GLOBALS['TL_LANG']['tl_ac_project']['description']     = array('Description', 'Work description can be entered here.');
+$GLOBALS['TL_LANG']['tl_ac_project']['singleSRC']       = array('Cover image', 'Here you can choose the work cover image.');
+$GLOBALS['TL_LANG']['tl_ac_project']['overrideImgSize'] = array('Override image size', 'Here you can override the default cropping set by list module.');
+$GLOBALS['TL_LANG']['tl_ac_project']['published']       = array('Publish work', 'Make the work publicly visible on the website.');
 
 
 /**
  * Legends
  */
-$GLOBALS['TL_LANG']['tl_ac_project']['name_legend'] = 'Work and description';
+$GLOBALS['TL_LANG']['tl_ac_project']['name_legend']    = 'Work and description';
+$GLOBALS['TL_LANG']['tl_ac_project']['image_legend']   = 'Image settings';
+$GLOBALS['TL_LANG']['tl_ac_project']['publish_legend'] = 'Publish settings';
 
 
 /**

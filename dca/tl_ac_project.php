@@ -14,6 +14,12 @@
 
 
 /**
+ * Load tl_content language file
+ */
+\System::loadLanguageFile('tl_content');
+
+
+/**
  * Table tl_ac_project
  */
 $GLOBALS['TL_DCA']['tl_ac_project'] = array
@@ -120,10 +126,17 @@ $GLOBALS['TL_DCA']['tl_ac_project'] = array
         )
     ),
 
+    // Subpalettes
+    'subpalettes' => array
+    (
+        'overrideImgSize'             => 'imgSize'
+    ),
+
     // Palettes
     'palettes' => array
     (
-        'default'                     => '{name_legend},name,alias,page,singleSRC,description,published'
+        '__selector__'                => array('overrideImgSize'),
+        'default'                     => '{name_legend},name,alias,page,description;{image_legend},singleSRC,overrideImgSize;{publish_legend},published'
     ),
 
     // Fields
@@ -169,14 +182,6 @@ $GLOBALS['TL_DCA']['tl_ac_project'] = array
             'eval'                    => array('mandatory'=>true, 'fieldType'=>'radio', 'tl_class'=>'clr'),
             'sql'                     => "int(10) unsigned NOT NULL default '0'"
         ),
-        'singleSRC' => array
-        (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_ac_project']['singleSRC'],
-            'exclude'                 => true,
-            'inputType'               => 'fileTree',
-            'eval'                    => array('filesOnly'=>true, 'fieldType'=>'radio', 'extensions'=>$GLOBALS['TL_CONFIG']['validImageTypes'], 'tl_class'=>'clr'),
-            'sql'                     => "binary(16) NULL"
-        ),
         'description' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_ac_project']['description'],
@@ -185,6 +190,33 @@ $GLOBALS['TL_DCA']['tl_ac_project'] = array
             'inputType'               => 'textarea',
             'eval'                    => array('rte'=>'tinyMCE', 'tl_class'=>'clr'),
             'sql'                     => "text NULL"
+        ),
+        'singleSRC' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_ac_project']['singleSRC'],
+            'exclude'                 => true,
+            'inputType'               => 'fileTree',
+            'eval'                    => array('filesOnly'=>true, 'fieldType'=>'radio', 'extensions'=>$GLOBALS['TL_CONFIG']['validImageTypes'], 'tl_class'=>'clr'),
+            'sql'                     => "binary(16) NULL"
+        ),
+        'overrideImgSize' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_ac_project']['overrideImgSize'],
+            'exclude'                 => true,
+            'filter'                  => true,
+            'inputType'               => 'checkbox',
+            'eval'                    => array('submitOnChange'=>true),
+            'sql'                     => "char(1) NOT NULL default ''"
+        ),
+        'imgSize' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_content']['size'],
+            'exclude'                 => true,
+            'inputType'               => 'imageSize',
+            'options'                 => $GLOBALS['TL_CROP'],
+            'reference'               => &$GLOBALS['TL_LANG']['MSC'],
+            'eval'                    => array('rgxp'=>'digit', 'nospace'=>true, 'helpwizard'=>true, 'tl_class'=>'w50'),
+            'sql'                     => "varchar(64) NOT NULL default ''"
         ),
         'published' => array
         (

@@ -107,7 +107,18 @@ class ModuleProjectList extends \Module
             // Add the cover image
             if (($objImage = \FilesModel::findByPk($objProjects->singleSRC)) !== null && is_file(TL_ROOT . '/' . $objImage->path))
             {
-                $arrProjects[$objProjects->id]['singleSRC'] = \Image::getHtml(\Image::get($objImage->path, $imgSize[0], $imgSize[1], $imgSize[2]), $objProjects->name);
+                $size = $imgSize;
+
+                // Override the image size
+                if ($objProjects->overrideImgSize)
+                {
+                    $newSize = deserialize($objProjects->imgSize, true);
+                    $size[0] = $newSize[0] ? $newSize[0] : $size[0];
+                    $size[1] = $newSize[1] ? $newSize[1] : $size[1];
+                    $size[2] = $newSize[2];
+                }
+
+                $arrProjects[$objProjects->id]['singleSRC'] = \Image::getHtml(\Image::get($objImage->path, $size[0], $size[1], $size[2]), $objProjects->name);
             }
         }
 
