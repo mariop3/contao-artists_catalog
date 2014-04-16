@@ -17,3 +17,4 @@
  * Fields
  */
 $GLOBALS['TL_LANG']['tl_module']['ac_openFirst'] = array('Display first work', 'Automatically display first work in the list.');
+$GLOBALS['TL_LANG']['tl_module']['ac_showList']  = array('Always show the module', 'Show the module even if the reader item is specified.');

@@ -55,7 +55,7 @@ class ModuleProjectList extends \Module
         }
 
         // Hide the list module if there is item specified
-        if (\Input::get('items'))
+        if (\Input::get('items') && !$this->ac_showList)
         {
             return '';
         }
