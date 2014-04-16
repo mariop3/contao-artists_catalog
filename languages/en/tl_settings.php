@@ -22,4 +22,4 @@ $GLOBALS['TL_LANG']['tl_settings']['ac_defaultPage'] = array('Default page', 'He
 /**
  * Legends
  */
-$GLOBALS['TL_LANG']['tl_settings']['ac_legend'] = 'Artists catalog settings';
+$GLOBALS['TL_LANG']['tl_settings']['ac_legend'] = 'Portfolio settings';

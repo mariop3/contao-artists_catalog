@@ -24,5 +24,5 @@ $GLOBALS['TL_LANG']['MOD']['ac_projects'] = array('Portfolio', 'Manage artist po
  */
 $GLOBALS['TL_LANG']['FMD']['artists_catalog']       = 'Artist portfolio';
 $GLOBALS['TL_LANG']['FMD']['ac_project_navigation'] = array('Portfolio navigation');
-$GLOBALS['TL_LANG']['FMD']['ac_project_list']       = array('Portfolio list');
+$GLOBALS['TL_LANG']['FMD']['ac_project_list']       = array('Portfolio covers');
 $GLOBALS['TL_LANG']['FMD']['ac_project_reader']     = array('Portfolio reader');
