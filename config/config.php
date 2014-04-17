@@ -14,6 +14,13 @@
 
 
 /**
+ * Extension version
+ */
+@define('ARTISTS_CATALOG_VERSION', '1.0');
+@define('ARTISTS_CATALOG_BUILD', '0');
+
+
+/**
  * Back end modules
  */
 $GLOBALS['BE_MOD']['content']['ac_projects'] = array
