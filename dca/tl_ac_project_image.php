@@ -66,13 +66,13 @@ $GLOBALS['TL_DCA']['tl_ac_project_image'] = array
             ),
 			'copy' => array
 			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_news']['copy'],
+				'label'               => &$GLOBALS['TL_LANG']['tl_ac_project_image']['copy'],
 				'href'                => 'act=paste&amp;mode=copy',
 				'icon'                => 'copy.gif'
 			),
 			'cut' => array
 			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_news']['cut'],
+				'label'               => &$GLOBALS['TL_LANG']['tl_ac_project_image']['cut'],
 				'href'                => 'act=paste&amp;mode=cut',
 				'icon'                => 'cut.gif'
 			),

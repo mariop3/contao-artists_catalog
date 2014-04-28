@@ -14,6 +14,12 @@
 
 
 /**
+ * Load tl_content language file
+ */
+\System::loadLanguageFile('tl_content');
+
+
+/**
  * Table tl_ac_project
  */
 $GLOBALS['TL_DCA']['tl_ac_project'] = array
@@ -26,6 +32,15 @@ $GLOBALS['TL_DCA']['tl_ac_project'] = array
         'ctable'                      => array('tl_ac_project_image'),
         'switchToEdit'                => true,
         'enableVersioning'            => true,
+        'onsubmit_callback' => array
+        (
+            array('tl_ac_project', 'updateSortingTable'),
+            array('tl_ac_project', 'setDefaultPage')
+        ),
+        'ondelete_callback' => array
+        (
+            array('tl_ac_project', 'updateSortingTable')
+        ),
         'sql' => array
         (
             'keys' => array
@@ -53,13 +68,20 @@ $GLOBALS['TL_DCA']['tl_ac_project'] = array
         ),
         'global_operations' => array
         (
+            'sorting' => array
+            (
+                'label'               => &$GLOBALS['TL_LANG']['tl_ac_project']['sorting'],
+                'href'                => 'table=tl_page',
+                'icon'                => 'page.gif',
+                'attributes'          => 'onclick="Backend.getScrollOffset()"'
+            ),
             'all' => array
             (
                 'label'               => &$GLOBALS['TL_LANG']['MSC']['all'],
                 'href'                => 'act=select',
                 'class'               => 'header_edit_all',
                 'attributes'          => 'onclick="Backend.getScrollOffset()" accesskey="e"'
-            )
+            ),
         ),
         'operations' => array
         (
@@ -71,7 +93,7 @@ $GLOBALS['TL_DCA']['tl_ac_project'] = array
             ),
             'editheader' => array
             (
-                'label'               => &$GLOBALS['TL_LANG']['tl_ac_project']['editmeta'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_ac_project']['editheader'],
                 'href'                => 'act=edit',
                 'icon'                => 'header.gif'
             ),
@@ -104,10 +126,17 @@ $GLOBALS['TL_DCA']['tl_ac_project'] = array
         )
     ),
 
+    // Subpalettes
+    'subpalettes' => array
+    (
+        'overrideImgSize'             => 'imgSize'
+    ),
+
     // Palettes
     'palettes' => array
     (
-        'default'                     => '{name_legend},name,alias,page,description,published'
+        '__selector__'                => array('overrideImgSize'),
+        'default'                     => '{name_legend},name,alias,page,description;{image_legend},singleSRC,overrideImgSize;{publish_legend},published'
     ),
 
     // Fields
@@ -149,8 +178,9 @@ $GLOBALS['TL_DCA']['tl_ac_project'] = array
             'exclude'                 => true,
             'filter'                  => true,
             'inputType'               => 'pageTree',
+            'foreignKey'              => 'tl_page.title',
             'eval'                    => array('mandatory'=>true, 'fieldType'=>'radio', 'tl_class'=>'clr'),
-            'sql'                     => "blob NULL"
+            'sql'                     => "int(10) unsigned NOT NULL default '0'"
         ),
         'description' => array
         (
@@ -160,6 +190,33 @@ $GLOBALS['TL_DCA']['tl_ac_project'] = array
             'inputType'               => 'textarea',
             'eval'                    => array('rte'=>'tinyMCE', 'tl_class'=>'clr'),
             'sql'                     => "text NULL"
+        ),
+        'singleSRC' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_ac_project']['singleSRC'],
+            'exclude'                 => true,
+            'inputType'               => 'fileTree',
+            'eval'                    => array('filesOnly'=>true, 'fieldType'=>'radio', 'extensions'=>$GLOBALS['TL_CONFIG']['validImageTypes'], 'tl_class'=>'clr'),
+            'sql'                     => "binary(16) NULL"
+        ),
+        'overrideImgSize' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_ac_project']['overrideImgSize'],
+            'exclude'                 => true,
+            'filter'                  => true,
+            'inputType'               => 'checkbox',
+            'eval'                    => array('submitOnChange'=>true),
+            'sql'                     => "char(1) NOT NULL default ''"
+        ),
+        'imgSize' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_content']['size'],
+            'exclude'                 => true,
+            'inputType'               => 'imageSize',
+            'options'                 => $GLOBALS['TL_CROP'],
+            'reference'               => &$GLOBALS['TL_LANG']['MSC'],
+            'eval'                    => array('rgxp'=>'digit', 'nospace'=>true, 'helpwizard'=>true, 'tl_class'=>'w50'),
+            'sql'                     => "varchar(64) NOT NULL default ''"
         ),
         'published' => array
         (
@@ -175,12 +232,45 @@ $GLOBALS['TL_DCA']['tl_ac_project'] = array
 
 
 /**
+ * Use the default page
+ */
+if ($GLOBALS['TL_CONFIG']['ac_defaultPage'])
+{
+    unset($GLOBALS['TL_DCA']['tl_ac_project']['fields']['page']);
+}
+
+
+/**
  * Class tl_ac_project
  *
  * Provide miscellaneous methods that are used by the data configuration array.
  */
 class tl_ac_project extends Backend
 {
+
+    /**
+     * Update the sorting table
+     * @param \DataContainer
+     */
+    public function updateSortingTable(\DataContainer $dc)
+    {
+        \ArtistsCatalog\ArtistsCatalog::updateSortingTable($dc->activeRecord->page);
+    }
+
+
+    /**
+     * Set the default page
+     * @param \DataContainer
+     */
+    public function setDefaultPage(\DataContainer $dc)
+    {
+        if ($GLOBALS['TL_CONFIG']['ac_defaultPage'])
+        {
+            $this->Database->prepare("UPDATE tl_ac_project SET page=? WHERE id=?")
+                           ->execute($GLOBALS['TL_CONFIG']['ac_defaultPage'], $dc->id);
+        }
+    }
+
 
     /**
      * Auto-generate the project alias if it has not been set yet

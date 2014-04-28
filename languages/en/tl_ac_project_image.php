@@ -16,8 +16,8 @@
 /**
  * Fields
  */
-$GLOBALS['TL_LANG']['tl_ac_project_image']['headline']    = array('Headline', 'Here you can enter the project headline.');
-$GLOBALS['TL_LANG']['tl_ac_project_image']['subheadline'] = array('Subheadline', 'Here you can enter the project subheadline.');
+$GLOBALS['TL_LANG']['tl_ac_project_image']['headline']    = array('Title', 'Choose a title.');
+$GLOBALS['TL_LANG']['tl_ac_project_image']['subheadline'] = array('Short description', 'Enter a short description here.');
 $GLOBALS['TL_LANG']['tl_ac_project_image']['singleSRC']   = array('Image source', 'Please choose the image source.');
 $GLOBALS['TL_LANG']['tl_ac_project_image']['published']   = array('Publish image', 'Make the image publicly visible on the website.');
 
@@ -25,7 +25,7 @@ $GLOBALS['TL_LANG']['tl_ac_project_image']['published']   = array('Publish image
 /**
  * Legends
  */
-$GLOBALS['TL_LANG']['tl_ac_project_image']['headline_legend'] = 'Headline and source';
+$GLOBALS['TL_LANG']['tl_ac_project_image']['headline_legend'] = 'Title and source';
 
 
 /**

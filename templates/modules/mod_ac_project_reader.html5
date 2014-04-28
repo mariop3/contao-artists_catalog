@@ -1,0 +1,70 @@
+
+<!-- indexer::stop -->
+<div class="<?php echo $this->class; ?> block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
+
+    <?php if ($this->headline): ?>
+    <<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
+    <?php endif; ?>
+
+    <div class="project_navigation">
+        <?php if ($this->previous): ?>
+        <a href="<?php echo $this->previousHref; ?>" class="previous" title="<?php echo $this->previousTitle; ?>"><?php echo $this->previousLink; ?></a>
+        <?php endif; ?>
+
+        <a href="<?php echo $this->overviewHref; ?>" class="overview" title="<?php echo $this->overviewTitle; ?>"><?php echo $this->overviewLink; ?></a>
+
+        <?php if ($this->next): ?>
+        <a href="<?php echo $this->nextHref; ?>" class="next" title="<?php echo $this->nextTitle; ?>"><?php echo $this->nextLink; ?></a>
+        <?php endif; ?>
+    </div>
+
+    <h1><?php echo $this->name; ?></h1>
+
+    <?php if ($this->images): ?>
+    <div class="images">
+        <?php foreach ($this->images as $image): ?>
+        <div class="image">
+            <figure class="image_container">
+                <?php if ($this->lightbox): ?>
+                <a href="<?php echo $image['src']; ?>" title="<?php echo $image['linkTitle']; ?>" data-lightbox="<?php echo $image['lightbox']; ?>">
+                <?php endif; ?>
+
+                <?php echo $image['singleSRC']; ?>
+
+                <?php if ($this->lightbox): ?>
+                </a>
+                <?php endif; ?>
+            </figure>
+
+            <?php if ($image['headline']): ?>
+            <h4><?php echo $image['headline']; ?></h4>
+            <?php endif; ?>
+
+            <?php if ($image['subheadline']): ?>
+            <p><?php echo $image['subheadline']; ?></p>
+            <?php endif; ?>
+        </div>
+        <?php endforeach; ?>
+    </div>
+    <?php endif; ?>
+
+    <?php if ($this->description): ?>
+    <div class="description">
+        <?php echo $this->description; ?>
+    </div>
+    <?php endif; ?>
+
+    <div class="project_navigation">
+        <?php if ($this->previous): ?>
+        <a href="<?php echo $this->previousHref; ?>" class="previous" title="<?php echo $this->previousTitle; ?>"><?php echo $this->previousLink; ?></a>
+        <?php endif; ?>
+
+        <a href="<?php echo $this->overviewHref; ?>" class="overview" title="<?php echo $this->overviewTitle; ?>"><?php echo $this->overviewLink; ?></a>
+
+        <?php if ($this->next): ?>
+        <a href="<?php echo $this->nextHref; ?>" class="next" title="<?php echo $this->nextTitle; ?>"><?php echo $this->nextLink; ?></a>
+        <?php endif; ?>
+    </div>
+
+</div>
+<!-- indexer::continue -->
