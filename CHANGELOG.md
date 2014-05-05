@@ -1,7 +1,7 @@
 artists_catalog Changelog
 =========================
 
-Version 1.0.1 stable (2013-05-??)
+Version 1.0.1 stable (2013-05-05)
 ---------------------------------
 
 ### Fixed

@@ -17,7 +17,7 @@
  * Extension version
  */
 @define('ARTISTS_CATALOG_VERSION', '1.0');
-@define('ARTISTS_CATALOG_BUILD', '0');
+@define('ARTISTS_CATALOG_BUILD', '1');
 
 
 /**
