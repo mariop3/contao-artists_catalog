@@ -287,7 +287,7 @@ class tl_ac_project extends Backend
         if ($varValue == '')
         {
             $autoAlias = true;
-            $varValue = standardize(String::restoreBasicEntities($dc->activeRecord->name));
+            $varValue = standardize(StringUtil::restoreBasicEntities($dc->activeRecord->name));
         }
 
         $objAlias = $this->Database->prepare("SELECT id FROM tl_ac_project WHERE alias=?")
