@@ -101,7 +101,7 @@ class ModuleProjectList extends \Module
             $arrProjects[$objProjects->id]['class'] = trim(((++$count == 1) ? ' first' : '') . (($count == $limit) ? ' last' : '') . ((($count % 2) == 0) ? ' odd' : ' even'));
             $arrProjects[$objProjects->id]['linkTitle'] = specialchars($objProjects->name, true);
             $arrProjects[$objProjects->id]['href'] = sprintf($strHref, $objProjects->alias);
-            $arrProjects[$objProjects->id]['description'] = \String::toHtml5($objProjects->description);
+            $arrProjects[$objProjects->id]['description'] = \StringUtil::toHtml5($objProjects->description);
             $arrProjects[$objProjects->id]['singleSRC'] = '';
 
             // Add the cover image
